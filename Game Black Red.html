@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+<script>
+    let board = [];
+    let gameplay1 = [];
+    let gameplay2 = [];
+    let trunggian;
+    let k = 1;
+    let kq = [];
+    let demkq = 0;
+     for (let j=0;j<52;j++) {
+         board[j] = k;
+          k++;
+          if(k>13){
+              k=1;
+          }
+    }
+     for (tronbai=0;tronbai<50;tronbai++)
+    {
+         i = Math.ceil(Math.random() * 51);
+        k = Math.ceil(Math.random() * 51);
+        trunggian = board[k];
+        board[k] = board[i];
+        board[i] = trunggian;
+     }
+     j = 0;
+     k = 0;
+     for (i = 0; i < 52; i++) {
+         if (i % 2 == 0) {
+           gameplay1[j] = board[i];
+            j++;
+         } else {
+           gameplay2[k] = board[i];
+           k++;
+         }
+     }
+     for (i = 0; i < 26; i++) {
+        if (gameplay1[i] > gameplay2[i]) {
+            kq[i] = 1;
+            demkq++;
+        } else kq[i] = 0;
+     }
+     if (demkq > 13) {
+         document.write("Play1 win");
+     } else if (demkq<13){
+         document.write("Play2 win");
+        }
+            else {
+                document.write("2 Ben hoa nhau");
+     }
+</script>
+</body>
+</html>
